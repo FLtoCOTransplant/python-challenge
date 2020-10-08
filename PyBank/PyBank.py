@@ -13,6 +13,9 @@ h_rev = 0
 l_rev = 0
 cur_month_rev = 0
 
+#File output
+analysis = os.path.join("Resources", "Results of Bank Revenue Analysis.txt")
+
 # Open and read csv
 with open(budget_csv) as csv_file:
     budget_csv = csv.reader(csv_file, delimiter=",")
@@ -28,8 +31,10 @@ with open(budget_csv) as csv_file:
         t_months = t_months + 1
 
         #total revenue
-        #cur_month_rev = int(row[1])
+        #cur_month_rev = int(row["Profit/Losses"])
         #t_rev = t_rev + cur_month_rev
+
+        #
 
 #Calculate the average monthly revenue
 #ave_monthly_rev = t_rev/t_months
@@ -49,5 +54,5 @@ results = (
 print(results)
 
 #Output results to file
-#with open(Bank_Revenue_Summary, "w") as txt_file:
-#    txt_file.write(results)
+with open(analysis, "w") as txt_file:
+    txt_file.write(results)
