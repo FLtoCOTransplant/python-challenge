@@ -11,6 +11,7 @@ t_rev = 0
 t_rev_delta = 0
 h_rev = 0
 l_rev = 0
+cur_month_rev = 0
 
 # Open and read csv
 with open(budget_csv) as csv_file:
@@ -27,7 +28,8 @@ with open(budget_csv) as csv_file:
         t_months = t_months + 1
 
         #total revenue
-        t_rev = t_rev + int(row[1])
+        #cur_month_rev = int(row[1])
+        #t_rev = t_rev + cur_month_rev
 
 #Calculate the average monthly revenue
 #ave_monthly_rev = t_rev/t_months
@@ -39,10 +41,13 @@ results = (
     f"Total # of Months : {t_months}\n"
     f"Total Revenue for {t_months} Months: ${t_rev}\n"
     f"Average Monthly Revenue : $\n"
-
-
-
+    f"Month with Greatest Increase in Revenue: \n"
+    f"Month with Greatest Decrease in Revenue: \n"
 )    
 
 #Show output in terminal
 print(results)
+
+#Output results to file
+#with open(Bank_Revenue_Summary, "w") as txt_file:
+#    txt_file.write(results)
