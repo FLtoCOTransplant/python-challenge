@@ -10,8 +10,8 @@ t_months = 0
 t_rev = 0
 rev_delta = 0
 prev_rev = 0
-h_rev = 0
-l_rev = 0
+h_rev = -100000000
+l_rev = 100000000
 cur_month_rev = 0
 
 #File output
@@ -36,22 +36,31 @@ with open(budget_csv) as csv_file:
         t_rev += cur_month_rev
 
         #Calculate greatest increase in revenue
-        #rev_delta = int(row["Profit/losses"]) - prev_rev
-        #prev_rev =  int(row["Profit/losses"])
+        if t_months >1:
+            rev_delta = int(row[1]) - prev_rev
+            if rev_delta > h_rev:
+                h_rev = rev_delta
+                h_rev_d = (row[0])
         
+        #Calculate greatest decrease in revenue
+        if t_months >1:
+            rev_delta = int(row[1]) - prev_rev
+            if rev_delta < l_rev:
+                l_rev = rev_delta
+                l_rev_d = (row[0])
 
 #Calculate the average monthly revenue
-#ave_monthly_rev = t_rev/t_months
+ave_monthly_rev = t_rev/t_months
 
 # Provide the board with the final results 
 results = (
-    f"Financial Overview\n"
+    f"     Financial Overview\n"
     f"----------------------------\n"
     f"Total # of Months : {t_months}\n"
     f"Total Revenue for {t_months} Months: ${t_rev}\n"
-    f"Average Monthly Revenue : $\n"
-    f"Month with Greatest Increase in Revenue: \n"
-    f"Month with Greatest Decrease in Revenue: \n"
+    f"Average Monthly Revenue : {ave_monthly_rev}$\n"
+    f"Month with Greatest Increase in Revenue: {h_rev_d} & {h_rev}\n"
+    f"Month with Greatest Decrease in Revenue: {l_rev_d} & {l_rev}\n"
 )    
 
 #Show output in terminal
