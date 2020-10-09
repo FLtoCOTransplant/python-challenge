@@ -3,8 +3,8 @@
 Total # of votes cast : 3521001
 ----------------------------
 Result for Each Candidate
-Results for Khan - 63.0% (2218231)
-Results for Correy - 20.0% (704200)
-Results for Li - 14.0% (492940)
-Results for O'Tooley - 3.0% (105630)
+Results for Khan - 63.0% (2218231 votes)
+Results for Correy - 20.0% (704200 votes)
+Results for Li - 14.0% (492940 votes)
+Results for O'Tooley - 3.0% (105630 votes)
 Winner of the Election is: Khan

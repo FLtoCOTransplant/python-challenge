@@ -2,6 +2,6 @@
 ----------------------------
 Total # of Months : 86
 Total Revenue for 86 Months: $38382578
-Average Monthly Revenue : 446309.0465116279$
+Average Monthly Revenue : $446309.0465116279
 Month with Greatest Increase in Revenue: Feb-2012 & 1170593
 Month with Greatest Decrease in Revenue: Sep-2013 & -1196225

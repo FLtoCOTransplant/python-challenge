@@ -10,15 +10,14 @@ t_votes = 0
 candidate = {}
 
 #File output
-analysis = os.path.join("Voting Results for Small_Town, USA.txt")
+analysis = os.path.join("Voting_Results_Small_Town, USA.txt")
 
 # Open and read csv
 with open(vote_csv) as csv_file:
     vote_reader = csv.reader(csv_file, delimiter=",")
 
 #Read the header and skip first row
-    header = next(vote_reader)
-    #print(f"Header: {budget_csv}")   
+    header = next(vote_reader)  
     
     #start collecting data denoting each row
     for row in vote_reader:  
@@ -55,7 +54,7 @@ with open(analysis, "w") as txt_file:
 
         #Calc the percent of each candidates votes
     for key,value in candidate.items():
-        perc_vote = str(round((value/t_votes)*100,3))+ "%" + " ("+str(value)+ ")"
+        perc_vote = str(round((value/t_votes)*100,3))+ "%" + " ("+str(value)+ "" + " votes)"
         print (f"Results for {key} - {perc_vote}")
         txt_file.write(f"Results for {key} - {perc_vote}\n")   
     

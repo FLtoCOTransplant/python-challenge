@@ -15,7 +15,7 @@ l_rev = 100000000
 cur_month_rev = 0
 
 #File output
-analysis = os.path.join("Results of Bank Revenue Analysis.txt")
+analysis = os.path.join("Results_Bank_Revenue_Analysis.txt")
 
 # Open and read csv
 with open(budget_csv) as csv_file:
@@ -23,7 +23,6 @@ with open(budget_csv) as csv_file:
 
 #Read the header and skip first row
     header = next(csv_file)
-    #print(f"Header: {budget_csv}")
 
     #start collecting data denoting each row
     for row in budget_csv:
@@ -58,7 +57,7 @@ results = (
     f"----------------------------\n"
     f"Total # of Months : {t_months}\n"
     f"Total Revenue for {t_months} Months: ${t_rev}\n"
-    f"Average Monthly Revenue : {ave_monthly_rev}$\n"
+    f"Average Monthly Revenue : ${ave_monthly_rev}\n"
     f"Month with Greatest Increase in Revenue: {h_rev_d} & {h_rev}\n"
     f"Month with Greatest Decrease in Revenue: {l_rev_d} & {l_rev}\n"
 )    
