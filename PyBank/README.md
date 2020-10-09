@@ -16,4 +16,5 @@ For this assignment I get to play a finanical analyst and determine the followin
 This data is not just for me though, this is for the board and so I will export the results
 to a text file.
 
-
+Note- The number formats are not ideal.  I did try and add commas and round to two significant digits 
+but that caused errors in the code.  I will continue to work on formatting as we progress.
