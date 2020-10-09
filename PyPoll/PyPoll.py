@@ -7,9 +7,9 @@ vote_csv=os.path.join("Resources","election_data.csv")
 
 # Define variables
 t_votes = 0
-vote_count = 0
 candidate = []
-w_candidate = ""
+vote_count = {}
+per_vote = {}
 
 #File output
 analysis = os.path.join("Resources", "Voting Results for Small Town, USA.txt")
@@ -28,7 +28,20 @@ with open(vote_csv) as csv_file:
         #determine total votes
         t_votes += 1
 
-        #What is the candidate name
+        #Total up the votes for each candidate as we collect candicate names
+        if row[2] in candidate and row[2] in "Candidate":
+            vote_count[row[2]] = vote_count[row[2]]+1
+        #if that candidate is not in the list add them
+        else:
+            candidate.append(row[2])
+            vote_count[row[2]] = 1
+
+#Calc the percent of each candidates votes
+for key,value in vote_count.items():
+    per_vote[key] = str(round((value/t_votes)*100,3))
+
+#Who is the winner
+winner = max(vote_count.keys())
 
 # Provide the public with the results of the election 
 results = (
@@ -38,8 +51,8 @@ results = (
     f"----------------------------\n"
     f"Total Revenue for {t_months} Months: ${t_rev}\n"
     f"Average Monthly Revenue : $\n"
-    f"Month with Greatest Increase in Revenue: \n"
-    f"Month with Greatest Decrease in Revenue: \n"
+    f"Winner of the Election is: {winner}\n"
+    f"That candidate received : \n"
 )    
 
 #Show output in terminal
