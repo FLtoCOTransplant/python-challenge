@@ -15,25 +15,24 @@ l_rev = 0
 cur_month_rev = 0
 
 #File output
-analysis = os.path.join("Resources", "Results of Bank Revenue Analysis.txt")
+analysis = os.path.join("Results of Bank Revenue Analysis.txt")
 
 # Open and read csv
 with open(budget_csv) as csv_file:
     budget_csv = csv.reader(csv_file, delimiter=",")
 
 #Read the header and skip first row
-    budget_csv = next(csv_file)
+    header = next(csv_file)
     #print(f"Header: {budget_csv}")
 
     #start collecting data denoting each row
     for row in budget_csv:
 
         #total months
-        t_months = t_months + 1
+        t_months+= 1
 
         #total revenue
         cur_month_rev = int(row[1])
-        #t_rev = t_rev = cur_month_rev
         t_rev += cur_month_rev
 
         #Calculate greatest increase in revenue

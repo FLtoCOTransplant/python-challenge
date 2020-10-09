@@ -37,7 +37,7 @@ with open(vote_csv) as csv_file:
 with open(analysis, "w") as txt_file:
 
     #Who is the winner
-    winner = max(candidate.keys())
+    winner = max(candidate, key=candidate.get) 
 
     # Provide the public with the results of the election 
     results = (
@@ -57,6 +57,11 @@ with open(analysis, "w") as txt_file:
     for key,value in candidate.items():
         perc_vote = str(round((value/t_votes)*100,3))+ "%" + " ("+str(value)+ ")"
         print (f"Results for {key} - {perc_vote}")
+        txt_file.write(f"Results for {key} - {perc_vote}\n")   
+    
     print (f"Winner of the Election is: {winner}\n")
-        
+    txt_file.write(f"Winner of the Election is: {winner}\n")      
+    #Write to output file
+
+    
             
