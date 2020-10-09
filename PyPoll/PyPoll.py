@@ -29,12 +29,12 @@ with open(vote_csv) as csv_file:
         t_votes += 1
 
         #Total up the votes for each candidate as we collect candicate names
-        if row[2] in candidate and row[2] in "Candidate":
-            vote_count[row[2]] = vote_count[row[2]]+1
+        if row[0] in candidate and row[2] in "Candidate":
+            vote_count[row[0]] = vote_count[row[0]]+1
         #if that candidate is not in the list add them
         else:
-            candidate.append(row[2])
-            vote_count[row[2]] = 1
+            candidate.append(row[0])
+            vote_count[row[0]] = 1
 
 #Calc the percent of each candidates votes
 for key,value in vote_count.items():

@@ -23,9 +23,9 @@ with open(budget_csv) as csv_file:
 
 #Read the header and skip first row
     budget_csv = next(csv_file)
-    #print(f"Header: {csv_header}")
+    #print(f"Header: {budget_csv}")
 
-    #start collecting data denoting each row as a row
+    #start collecting data denoting each row
     for row in budget_csv:
 
         #total months
