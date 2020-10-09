@@ -8,7 +8,8 @@ budget_csv=os.path.join("Resources","budget_data.csv")
 # Define the variables for calcs
 t_months = 0
 t_rev = 0
-t_rev_delta = 0
+rev_delta = 0
+prev_rev = 0
 h_rev = 0
 l_rev = 0
 cur_month_rev = 0
@@ -31,10 +32,14 @@ with open(budget_csv) as csv_file:
         t_months = t_months + 1
 
         #total revenue
-        #cur_month_rev = int(row["Profit/Losses"])
-        #t_rev = t_rev + cur_month_rev
+        cur_month_rev = int(row[1])
+        #t_rev = t_rev = cur_month_rev
+        t_rev += cur_month_rev
 
-        #
+        #Calculate greatest increase in revenue
+        #rev_delta = int(row["Profit/losses"]) - prev_rev
+        #prev_rev =  int(row["Profit/losses"])
+        
 
 #Calculate the average monthly revenue
 #ave_monthly_rev = t_rev/t_months
