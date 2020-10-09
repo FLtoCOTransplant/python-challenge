@@ -38,7 +38,7 @@ with open(vote_csv) as csv_file:
 
 #Calc the percent of each candidates votes
 for key,value in vote_count.items():
-    per_vote[key] = str(round((value/t_votes)*100,3))
+    per_vote[key] = str(round((value/t_votes)*100,3))+ "%" + " ("+str(value)+ ")"
 
 #Who is the winner
 winner = max(vote_count.keys())
